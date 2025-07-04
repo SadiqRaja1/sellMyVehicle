@@ -5,7 +5,7 @@ import "./App.css"
 const App = () => {
   return (
     <div>
-      <img src={mainLogo} alt="mainImg" />
+      <img src={mainLogo} alt="mainImg" className='bg-black'/>
     </div>
   )
 }
