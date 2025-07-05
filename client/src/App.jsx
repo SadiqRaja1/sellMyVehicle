@@ -7,7 +7,7 @@ import Home from "./pages/Home"
 
 const App = () => {
   return (
-    <main className='h-screen w-screen bg-gray-100'>
+    <main className='pt-14 h-screen w-full bg-gray-100'>
       <Header />
 
       <Routes>
