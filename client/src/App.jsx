@@ -1,12 +1,22 @@
 import React from 'react'
-import mainLogo from "./assets/mainLogo.png"
 import "./App.css"
+import {Route, Routes } from "react-router-dom"
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import Home from "./pages/Home"
 
 const App = () => {
   return (
-    <div>
-      <img src={mainLogo} alt="mainImg" className='bg-black'/>
-    </div>
+    <>
+      <Header />
+
+      <Routes>
+        <Route path='/' element={<Home />}/>
+      </Routes>
+
+      <Footer />
+    </>
+
   )
 }
 
