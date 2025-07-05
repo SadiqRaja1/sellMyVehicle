@@ -6,28 +6,27 @@ import Footer from "./components/Footer"
 import Home from "./pages/Home"
 import Login from "./pages/Login"
 import Singup from "./pages/Singup"
+import About from "./pages/about"
+import MainLayout from "./layouts/MainLayout"
+import AuthLayout from "./layouts/AuthLayout"
 
 const App = () => {
   const location = useLocation();
 
   return (
-    <div className='flex flex-col min-h-screen'>
-      <Header />
-      <main className='pt-14 flex-grow bg-gray-100'>
-
         <Routes>
-          <Route path='/' element={<Home />}/>
-          <Route path='/login' element={<Login />} />
-          <Route path='/singup' element={<Singup />} />
+
+          <Route element={<MainLayout />}>
+            <Route path='/' element={<Home />}/>
+            <Route path='/about' element={<About />}/>            
+          </Route>  
+
+          <Route element={<AuthLayout />}>
+            <Route path='/login' element={<Login />} />
+            <Route path='/singup' element={<Singup />} />
+          </Route>
+
         </Routes>
-
-      </main>
-
-      {/* footer will not load in login and singup page */}
-      {location.pathname !== "/login" && location.pathname !== "/singup" && <Footer />}
-    </div>
-
-
   )
 }
 
