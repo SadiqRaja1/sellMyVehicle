@@ -1,8 +1,14 @@
 const express = require("express");
 const app = express();
 const RouteSignup = require("./route/Signup_R");
+const cors = require("cors")
+
+const alowedLink = {
+    origin:[process.env.Frontend_URL]
+}
 
 app.use(express.json())
+app.use(cors(alowedLink))
 
 app.use("/user",RouteSignup)
 
