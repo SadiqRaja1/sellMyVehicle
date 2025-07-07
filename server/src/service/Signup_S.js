@@ -1,9 +1,12 @@
+const User = require("../models/user")
 
 async function register(data) {
     try{
-        console.log(data);
+        const newUser = new User(data);
+        const response = await newUser.save();
+        return "User created successfully"
     }catch(error){
-        return error
+        throw new Error("User created failed")
     }
 }
 
