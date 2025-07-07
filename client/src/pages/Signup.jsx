@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import mainLogo from "../assets/mainLogo.png"
+import axios from "axios"
 
 const Signup = () => {
   const [userData, setUserData] = useState({
@@ -11,8 +12,9 @@ const Signup = () => {
 
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passMismatch, setPassMismatch] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if(userData.password !== confirmPassword){
       setPassMismatch(true)
@@ -22,7 +24,10 @@ const Signup = () => {
       return
     }
     try{
-      console.log(userData)
+      let url=import.meta.env.VITE_BACKEND_URL;
+      const response = await axios.post(`${url}/user/register`, userData);
+      console.log("User created")
+      navigate("/login")
     }catch(error){
       console.error("Some Error occured:", error)
     }
