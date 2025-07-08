@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import mainLogo from "../assets/mainLogo.png"
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import axios from "axios"
 
 const Login = () => {
@@ -9,12 +9,15 @@ const Login = () => {
     password:"",
   })
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try{
       let url = import.meta.env.VITE_BACKEND_URL;
       const response = await axios.post(`${url}/auth/login`, userData)
-      console.log(response)
+      localStorage.setItem("token", response.data.token);
+      navigate("/")
     }catch(error){
       console.error(error)
     }
