@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import mainLogo from "../assets/mainLogo.png"
 import {Link} from "react-router-dom"
+import axios from "axios"
 
 const Login = () => {
   const [userData, setUserData] = useState({
@@ -8,10 +9,12 @@ const Login = () => {
     password:"",
   })
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try{
-      console.dir(userData)
+      let url = import.meta.env.VITE_BACKEND_URL;
+      const response = await axios.post(`${url}/auth/login`, userData)
+      console.log(response)
     }catch(error){
       console.error(error)
     }
