@@ -48,7 +48,7 @@ const Login = () => {
           <button className='bg-white/20 px-4 py-2 rounded active:scale-110 hover:bg-white/30' onClick={handleSubmit}>Login</button>
         </div>
 
-        <p className='text-center'>Don't have an account? <Link className='text-blue-400' to="/Singup">Login</Link></p>
+        <p className='text-center'>Don't have an account? <Link className='text-blue-400' to="/Signup">Signup</Link></p>
 
       </form>
     </>
