@@ -35,7 +35,7 @@ const Login = () => {
     <>
       <form className='bg-white/10 backdrop-blur-md border border-white/30 p-6 shadow-lg text-white rounded-3xl'>
         <div className='w-full flex justify-center md:pr-5 mb-3'> 
-        <img className='h-7' src={mainLogo} alt="Main Logo" />
+        <Link to="/"><img className='h-7' src={mainLogo} alt="Main Logo" /></Link>
         </div>
 
         <h1 className='text-4xl text-center mb-3'>Login</h1>
