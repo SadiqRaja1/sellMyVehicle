@@ -14,7 +14,6 @@ const vehicleLocation = new mongoose.Schema({
 
     locality : {
         type:String,
-        required:true
     }
 })
 

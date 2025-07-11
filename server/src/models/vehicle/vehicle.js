@@ -3,7 +3,7 @@ const vehicleNameSchema = require("./vehName")
 const vehicleLocation = require("./vehLoc")
 const vehicleInsurance = require("./vehInsurance")
 
-const carSchema = new mongoose.Schema({
+const vehicleSchema = new mongoose.Schema({
     vehicleType:{
         type:String,
         enum : ["Bike", "Car"],
@@ -25,20 +25,17 @@ const carSchema = new mongoose.Schema({
         type:Number,
         required: true
     },
-    year : {
-        type:Number,
-        required: true
-    },
 
     location : vehicleLocation,
 
     sellingPrice: {
-        type:String ,
+        type:Number ,
         required:true
     },
 
     owner : {
         type: String,
+        enum:["First", "Second", "Third", "Fourth or more"],
         required: true
     },
 
@@ -48,22 +45,27 @@ const carSchema = new mongoose.Schema({
     },
 
     transmission : {
-        type:Sring,
-        required:true
-    },
-
-    registration_Type : {
         type:String,
         enum : ["Manual", "Automatic"],
         required:true
     },
 
+    registration_Type : {
+        type:String,
+        enum:["Individual","Corporate","Taxi"],
+        required:true
+    },
+
+    Insurance : vehicleInsurance,
+    
     seller_Comment : {
         type:String,
         maxlength:1000,
         trim: true
     },
-
-    Insurance : vehicleInsurance,
     
 })
+
+const Vehicle = mongoose.model("Vehicle", vehicleSchema)
+
+module.exports = Vehicle
