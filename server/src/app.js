@@ -3,6 +3,7 @@ const app = express();
 const RouteSignup = require("./route/Signup_R");
 const RouteLogin =  require("./route/Login_R")
 const cors = require("cors")
+const RoutePostVehicle = require("./route/PostVehicle_R")
 
 const alowedLink = {
     origin:[process.env.Frontend_URL]
@@ -13,6 +14,7 @@ app.use(cors(alowedLink))
 
 app.use("/user",RouteSignup)
 app.use("/auth",RouteLogin)
+app.use("/post", RoutePostVehicle)
 
 app.get("/", (req, res) => {
     res.send("Connected with the root path");
