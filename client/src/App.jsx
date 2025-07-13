@@ -9,6 +9,7 @@ import Signup from "./pages/Signup"
 import About from "./pages/about"
 import MainLayout from "./layouts/MainLayout"
 import AuthLayout from "./layouts/AuthLayout"
+import NewPost from "./pages/NewPost/NewPost"
 
 const App = () => {
   const location = useLocation();
@@ -18,7 +19,8 @@ const App = () => {
 
           <Route element={<MainLayout />}>
             <Route path='/' element={<Home />}/>
-            <Route path='/about' element={<About />}/>            
+            <Route path='/about' element={<About />}/>       
+            <Route path='/newPost' element={<NewPost />} />     
           </Route>  
 
           <Route element={<AuthLayout />}>
