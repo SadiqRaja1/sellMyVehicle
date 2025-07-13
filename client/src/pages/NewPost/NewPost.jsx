@@ -7,6 +7,7 @@ import Insurance from "./newPost_components/Insurance"
 import Transmission from "./newPost_components/Transmission"
 import Owner from "./newPost_components/Owner"
 import Registration from "./newPost_components/Registration"
+import Location from "./newPost_components/Location"
 
 const newPost = () => {
   return (
@@ -26,6 +27,7 @@ const newPost = () => {
             <Owner />
             <Registration />
             <Insurance />
+            <Location />
 
           </div>
         </form>        
