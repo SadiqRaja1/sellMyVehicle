@@ -8,11 +8,12 @@ import Transmission from "./newPost_components/Transmission"
 import Owner from "./newPost_components/Owner"
 import Registration from "./newPost_components/Registration"
 import Location from "./newPost_components/Location"
+import SellerComment from "./newPost_components/Comment"
 
 const newPost = () => {
   return (
     <>
-        <form className='flex flex-col justify-center items-center mt-5 text-gray-700 text-xl'>
+        <form className='flex flex-col justify-center items-center my-5 text-gray-700 text-xl'>
 
           <div className='grid grid-cols-4 gap-4 border border-gray-300 rounded shadow px-20 py-6 w-4/5' >
             <h1 className='text-3xl col-span-4 text-center font-bold'>Enter Your Vehicle Details</h1>
@@ -28,6 +29,7 @@ const newPost = () => {
             <Registration />
             <Insurance />
             <Location />
+            <SellerComment />
 
           </div>
         </form>        
