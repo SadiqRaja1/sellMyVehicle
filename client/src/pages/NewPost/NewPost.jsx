@@ -19,10 +19,10 @@ const newPost = () => {
 
             <VehicleName />
             <Year />
-            <Fuel />
             <Kilometer />
             <Color />
             <Transmission />
+            <Fuel />
             <Owner />
             <Registration />
             <Insurance />

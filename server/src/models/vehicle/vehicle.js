@@ -19,8 +19,14 @@ const vehicleSchema = new mongoose.Schema({
     fule_Type : {
         type:String,
         required: true,
-        enum:["Petrol", "Diesel", "Electric", "CNG"]
+        enum:["Petrol", "Diesel", "Electric"]
     },
+
+    alternate_Fuel :{
+        type:String,
+        enum:["CNG", "LPG", "none"]
+    },
+
     kilometer : {
         type:Number,
         required: true
