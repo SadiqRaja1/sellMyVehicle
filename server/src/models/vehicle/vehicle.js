@@ -1,5 +1,4 @@
 const mongoose = require("../../configuration/dbConfig")
-const vehicleNameSchema = require("./vehName")
 const vehicleLocation = require("./vehLoc")
 const vehicleInsurance = require("./vehInsurance")
 
@@ -10,7 +9,17 @@ const vehicleSchema = new mongoose.Schema({
         required: true
     },
 
-    vehicleName: vehicleNameSchema,
+    make : {
+        type:String,
+        required:true
+    },
+    model : {
+        type: String,
+        required: true
+    },
+    variant : {
+        type:String,
+    },
 
     year : {
         type:Number,
@@ -32,7 +41,20 @@ const vehicleSchema = new mongoose.Schema({
         required: true
     },
 
-    location : vehicleLocation,
+    State:{
+        type:String,
+        enum: ["Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jharkhand","Karnataka","Kerala","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim","Tamil Nadu","Telangana","Tripura","Uttar Pradesh","Uttarakhand","West Bengal"],
+        required: true,
+    },
+
+    city : {
+        type:String,
+        required:true
+    },
+
+    locality : {
+        type:String,
+    },
 
     sellingPrice: {
         type:Number ,
@@ -62,7 +84,15 @@ const vehicleSchema = new mongoose.Schema({
         required:true
     },
 
-    Insurance : vehicleInsurance,
+    show:{
+        type:String,
+        required: true,
+        enum : ["Zero Depreciation", "First-Party", "Third-Party Insurance", "Expired"]
+    },
+    valid_Till : {
+        type:Date,
+        required: true
+    },
     
     seller_Comment : {
         type:String,

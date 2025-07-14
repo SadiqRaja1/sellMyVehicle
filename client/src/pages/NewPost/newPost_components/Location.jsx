@@ -13,7 +13,7 @@ const Location = () => {
             <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="state" id="state" defaultValue="">
                 <option value="" disabled>--State--</option>
                 {states.map((state) => 
-                    <option value={state}>{state}</option>
+                    <option key={state} value={state}>{state}</option>
                 )}
             </select>
         </div>

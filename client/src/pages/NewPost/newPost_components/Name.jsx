@@ -1,11 +1,12 @@
 import React from 'react'
 
-const VehiName = () => {
+const VehiName = ({formData, handleChange}) => {
   return (
     <div className='col-span-4 grid grid-cols-7 gap-4' >
         <div>
             <label htmlFor="vehicleType">Vehicle type</label>
-            <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="vehicleType" id="vehicleType" defaultValue="">
+            <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="vehicleType" id="vehicleType"
+            value={formData.vehicleType} onChange={handleChange}>
                 <option value="" disabled>--Select--</option>
                 <option value="bike">Bike</option>
                 <option value="car">Car</option>
@@ -13,7 +14,7 @@ const VehiName = () => {
         </div>
         <div className='col-span-2'>
             <label className='block' htmlFor="make">Make</label>
-            <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="text" name='make' id='make' />
+            <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="text" name='make' id='make' value={formData.vehicleName.make} onChange={handleChange}/>
         </div>
         <div className='col-span-2'>
             <label className='block' htmlFor="model">Model</label>
