@@ -1,6 +1,4 @@
 const mongoose = require("../../configuration/dbConfig")
-const vehicleLocation = require("./vehLoc")
-const vehicleInsurance = require("./vehInsurance")
 
 const vehicleSchema = new mongoose.Schema({
     vehicleType:{
@@ -89,6 +87,7 @@ const vehicleSchema = new mongoose.Schema({
         required: true,
         enum : ["Zero Depreciation", "First-Party", "Third-Party Insurance", "Expired"]
     },
+
     valid_Till : {
         type:Date,
         required: true
