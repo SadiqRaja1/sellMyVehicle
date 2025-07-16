@@ -1,15 +1,13 @@
 import React from 'react'
 import "./App.css"
 import {Route, Routes, useLocation } from "react-router-dom"
-import Header from "./components/Header"
-import Footer from "./components/Footer"
 import Home from "./pages/Home"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import About from "./pages/about"
 import MainLayout from "./layouts/MainLayout"
 import AuthLayout from "./layouts/AuthLayout"
-import NewPost from "./pages/NewPost/NewPost"
+import NewPost from "./pages/NewPost"
 
 const App = () => {
   const location = useLocation();
