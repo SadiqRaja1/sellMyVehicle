@@ -6,12 +6,24 @@ const newPost = () => {
 
   const [formData, setFormData] = useState({
     "vehicleType":"",
-
-    "vehicleName":{
-      "make":"",
-      "model":"",
-      "variant":""
-    }
+    "make":"",
+    "model":"",
+    "variant":"",
+    "year":0,
+    "fuel_Type":"",
+    "alternate_Fuel":"",
+    "kilometer":0,
+    "state":"",
+    "city":"",
+    "locality":"",
+    "sellingPrice":0,
+    "owner":"",
+    "color":"",
+    "transmission":"",
+    "registration_Type":"",
+    "insurance_show":"",
+    "insurance_valid_Till":"",
+    "seller_Comment":""
   })
 
   const handleSubmit = (e) => {
@@ -24,10 +36,10 @@ const newPost = () => {
   }
 
   const handleChange = (e) => {
-    const {name, value} = e.target
+    const {name, value, type} = e.target
     setFormData({
       ...formData,
-      [name] : value
+      [name]: type === "number" ? (parseInt(value) || 0) : value
     })
   }
   return (
@@ -50,41 +62,45 @@ const newPost = () => {
                 </div>
                 <div className='col-span-2'>
                   <label className='block' htmlFor="make">Make</label>
-                  <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="text" name='make' id='make' value={formData.vehicleName.make} onChange={handleChange}/>
+                  <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="text" name='make' id='make' value={formData.make} onChange={handleChange}/>
                 </div>
                 <div className='col-span-2'>
                   <label className='block' htmlFor="model">Model</label>
-                  <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="text" name='model' id='model' />              
+                  <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="text" name='model' id='model' value={formData.model} onChange={handleChange} />              
                 </div>
                 <div className='col-span-2'>
                   <label className='block' htmlFor="variant">Variant</label>
-                  <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="text" name='variant' id='variant' />
+                  <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="text" name='variant' id='variant' value={formData.variant} onChange={handleChange}/>
                 </div>
             </div>
 
             <div>
               <label className='block' htmlFor="year">Registration Year</label>
-              <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="text" name='year' id='year' />
+              <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="number" name='year' id='year' value={formData.year} onChange={handleChange}/>
             </div>
 
             <div>
               <label className='block' htmlFor="kilometer">Kilometer Driven</label>
-              <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="text" name='kilometer' id='kilometer' />
+              <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="number" name='kilometer' id='kilometer'  value={formData.kilometer} onChange={handleChange}/>
             </div>
             
             <div>
               <label className='block' htmlFor="color">Color</label>
-              <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="text" name='color' id='color' />
+              <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="text" name='color' id='color' value={formData.color} onChange={handleChange}/>
             </div>
 
             <div>
               <label className='block' htmlFor="transmission">Transmission</label>
-              <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="text" name='transmission' id='transmission' />
+                <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="transmission" id="transmission" value={formData.transmission} onChange={handleChange}>
+                  <option value="" disabled>--Select--</option>
+                  <option value="Manual">Manual</option>
+                  <option value="Automatic">Automatic</option>
+                </select>
             </div>
 
             <div>
               <label className='block' htmlFor="fuel">Fuel_type</label>
-                <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="vehicleType" id="vehicleType">
+                <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="fuel_Type" id="fuel_Type" value={formData.fuel_Type} onChange={handleChange}>
                   <option value="" disabled>--Select--</option>
                   <option value="Petrol">Petrol</option>
                   <option value="Diesel">Diesel</option>
@@ -92,8 +108,8 @@ const newPost = () => {
                 </select>
             </div>
             <div>
-              <label className='block' htmlFor="altFuel">Alternative Fuel</label>
-                <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="altFuel" id="altFuel">
+              <label className='block' htmlFor="alternate_Fuel">Alternative Fuel</label>
+                <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="alternate_Fuel" id="alternate_Fuel" value={formData.alternate_Fuel} onChange={handleChange}>
                   <option value="none">none</option>
                   <option value="CNG">CNG</option>
                   <option value="LPG">LPG</option>
@@ -102,19 +118,31 @@ const newPost = () => {
 
             <div>
               <label className='block' htmlFor="owner">Owner</label>
-              <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="text" name='owner' id='owner' />
+                <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="owner" id="owner"
+                value={formData.owner} onChange={handleChange}>
+                  <option value="" disabled>--Select--</option>
+                  <option value="First">First</option>
+                  <option value="Second">Second</option>
+                  <option value="Third">Third</option>
+                  <option value="Fourth or more">Fourth or more</option>
+                </select>
             </div>
 
             <div>
-              <label className='block' htmlFor="registration">Registration_type</label>
-              <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="text" name='registration' id='registration' />
+              <label className='block' htmlFor="registration_Type">Registration_type</label>
+                <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="registration_Type" id="registration_Type" value={formData.registration_Type} onChange={handleChange}>
+                  <option value="" disabled>--Select--</option>
+                  <option value="Individual">Individual</option>
+                  <option value="Corporate">Corporate</option>
+                  <option value="Taxi">Taxi</option>
+                </select>
             </div>
 
             <div className='col-span-4 grid grid-cols-6 gap-4'>
               <h4 className='h-full flex items-center text-3xl'>Insurance:</h4>
               <div className='col-span-3'>
-                <label htmlFor="show">Show</label>
-                <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="vehicleType" id="vehicleType" defaultValue="">
+                <label htmlFor="insurance_show">Show</label>
+                <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="insurance_show" id="insurance_show" value={formData.insurance_show} onChange={handleChange}>
                   <option value="" disabled>--Select--</option>
                   <option value="Zero Depreciation">Zero Depreciation</option>
                   <option value="First-Party">First-Party</option>
@@ -124,8 +152,8 @@ const newPost = () => {
               </div>
               
               <div className='col-span-2'>
-                <label htmlFor="validTill">Valid Till</label>
-                <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="date" id='validTill' name='validTill' />
+                <label htmlFor="insurance_valid_Till">Valid Till</label>
+                <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="date" id='insurance_valid_Till' name='insurance_valid_Till' value={formData.insurance_valid_Till} onChange={handleChange}/>
               </div>
             </div>
             
@@ -134,7 +162,7 @@ const newPost = () => {
                 <div className='col-span-2'>
                     <label className='block' htmlFor="state">State</label>
 
-                    <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="state" id="state" defaultValue="">
+                    <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="state" id="state" value={formData.state} onChange={handleChange}>
                       <option value="" disabled>--State--</option>
                       {states.map((state) => 
                         <option key={state} value={state}>{state}</option>
@@ -144,18 +172,18 @@ const newPost = () => {
 
                 <div className='col-span-2'>
                   <label className='block' htmlFor="city">City</label>
-                  <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="city" id="city" type="text" />
+                  <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="city" id="city" type="text" value={formData.city} onChange={handleChange}/>
                 </div>
 
                 <div className=''>
                   <label className='block' htmlFor="locality">Locality</label>
-                  <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="locality" id="locality" type="text" />
+                  <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="locality" id="locality" type="text" value={formData.locality} onChange={handleChange}/>
                 </div>
             </div>
             
             <div className='col-span-4 grid grid-cols-6 gap-4'>
-              <label className='h-full flex items-center text-3xl' htmlFor="sellerComment">Seller Comment:</label>
-              <textarea className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5 col-span-5' name="sellerComment" id="sellerComment"></textarea>
+              <label className='h-full flex items-center text-3xl' htmlFor="seller_Comment">Seller Comment:</label>
+              <textarea className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5 col-span-5' name="seller_Comment" id="seller_Comment" value={formData.seller_Comment} onChange={handleChange}></textarea>
             </div>
 
             <div className="col-span-4 grid grid-cols-3">
