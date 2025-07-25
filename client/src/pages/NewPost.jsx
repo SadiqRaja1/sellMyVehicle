@@ -102,7 +102,7 @@ const newPost = () => {
 
             <div>
               <label className='block' htmlFor="fuel">Fuel_type</label>
-                <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="vehicleType" id="vehicleType">
+                <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="fuel_Type" id="fuel_Type" value={formData.fuel_Type} onChange={handleChange}>
                   <option value="" disabled>--Select--</option>
                   <option value="Petrol">Petrol</option>
                   <option value="Diesel">Diesel</option>
