@@ -38,10 +38,10 @@ const newPost = () => {
   }
 
   const handleChange = (e) => {
-    const {name, value} = e.target
+    const {name, value, type} = e.target
     setFormData({
       ...formData,
-      [name] : value
+      [name]: type === "number" ? (parseInt(value) || 0) : value
     })
   }
   return (
@@ -102,7 +102,7 @@ const newPost = () => {
 
             <div>
               <label className='block' htmlFor="fuel">Fuel_type</label>
-                <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="fule_Type" id="fule_Type" value={formData.fule_Type} onChange={handleChange}>
+                <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="vehicleType" id="vehicleType">
                   <option value="" disabled>--Select--</option>
                   <option value="Petrol">Petrol</option>
                   <option value="Diesel">Diesel</option>
