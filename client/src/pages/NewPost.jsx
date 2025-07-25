@@ -11,7 +11,7 @@ const newPost = () => {
     "model":"",
     "variant":"",
     "year":0,
-    "fule_Type":"",
+    "fuel_Type":"",
     "alternate_Fuel":"",
     "kilometer":0,
     "state":"",
