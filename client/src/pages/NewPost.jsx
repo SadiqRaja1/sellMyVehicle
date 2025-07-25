@@ -1,4 +1,5 @@
 import { useState } from "react"
+import axios from "axios"
 
 const newPost = () => {
 
@@ -29,7 +30,8 @@ const newPost = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     try{
-      console.log(formData)
+      let mainUrl = import.meta.env.VITE_BACKEND_URL;
+      const res = axios.post(`${mainUrl}/post/vehicle`, formData);
     }catch(error){
       console.log(error)
     }
@@ -56,8 +58,8 @@ const newPost = () => {
                   <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="vehicleType" id="vehicleType"
                   value={formData.vehicleType} onChange={handleChange}>
                     <option value="" disabled>--Select--</option>
-                    <option value="bike">Bike</option>
-                    <option value="car">Car</option>
+                    <option value="Bike">Bike</option>
+                    <option value="Car">Car</option>
                   </select>
                 </div>
                 <div className='col-span-2'>
