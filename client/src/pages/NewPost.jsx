@@ -10,14 +10,14 @@ const newPost = () => {
     "make":"",
     "model":"",
     "variant":"",
-    "year":0,
+    "year":"",
     "fuel_Type":"",
-    "alternate_Fuel":"",
-    "kilometer":0,
+    "alternate_Fuel":"none",
+    "kilometer":"",
     "state":"",
     "city":"",
     "locality":"",
-    "sellingPrice":0,
+    "sellingPrice":"",
     "owner":"",
     "color":"",
     "transmission":"",
@@ -30,6 +30,7 @@ const newPost = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     try{
+      console.log(formData)
       let mainUrl = import.meta.env.VITE_BACKEND_URL;
       const res = axios.post(`${mainUrl}/post/vehicle`, formData);
     }catch(error){
