@@ -90,60 +90,70 @@ const newPost = () => {
               <label className='block' htmlFor="kilometer">Kilometer Driven</label>
               <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="number" name='kilometer' id='kilometer'  value={formData.kilometer} onChange={handleChange}/>
             </div>
+
+            <div>
+              <label className='block' htmlFor="sellingPrice">Selling Price</label>
+              <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="number" name='sellingPrice' id='sellingPrice'  value={formData.sellingPrice} onChange={handleChange}/>
+            </div>
             
             <div>
               <label className='block' htmlFor="color">Color</label>
               <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="text" name='color' id='color' value={formData.color} onChange={handleChange}/>
             </div>
 
-            <div>
-              <label className='block' htmlFor="transmission">Transmission</label>
-                <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="transmission" id="transmission" value={formData.transmission} onChange={handleChange}>
-                  <option value="" disabled>--Select--</option>
-                  <option value="Manual">Manual</option>
-                  <option value="Automatic">Automatic</option>
-                </select>
-            </div>
+            <div className='col-span-4 grid grid-cols-5 gap-4'>
 
-            <div>
-              <label className='block' htmlFor="fuel">Fuel_type</label>
-                <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="fuel_Type" id="fuel_Type" value={formData.fuel_Type} onChange={handleChange}>
-                  <option value="" disabled>--Select--</option>
-                  <option value="Petrol">Petrol</option>
-                  <option value="Diesel">Diesel</option>
-                  <option value="Electric">Electric</option>
-                </select>
-            </div>
-            <div>
-              <label className='block' htmlFor="alternate_Fuel">Alternative Fuel</label>
-                <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="alternate_Fuel" id="alternate_Fuel" value={formData.alternate_Fuel} onChange={handleChange}>
-                  <option value="none">none</option>
-                  <option value="CNG">CNG</option>
-                  <option value="LPG">LPG</option>
-                </select>
-            </div>
+              <div>
+                <label className='block' htmlFor="transmission">Transmission</label>
+                  <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="transmission" id="transmission" value={formData.transmission} onChange={handleChange}>
+                    <option value="" disabled>--Select--</option>
+                    <option value="Manual">Manual</option>
+                    <option value="Automatic">Automatic</option>
+                  </select>
+              </div>
 
-            <div>
-              <label className='block' htmlFor="owner">Owner</label>
-                <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="owner" id="owner"
-                value={formData.owner} onChange={handleChange}>
-                  <option value="" disabled>--Select--</option>
-                  <option value="First">First</option>
-                  <option value="Second">Second</option>
-                  <option value="Third">Third</option>
-                  <option value="Fourth or more">Fourth or more</option>
-                </select>
-            </div>
+              <div>
+                <label className='block' htmlFor="fuel">Fuel_type</label>
+                  <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="fuel_Type" id="fuel_Type" value={formData.fuel_Type} onChange={handleChange}>
+                    <option value="" disabled>--Select--</option>
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Electric">Electric</option>
+                  </select>
+              </div>
 
-            <div>
-              <label className='block' htmlFor="registration_Type">Registration_type</label>
-                <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="registration_Type" id="registration_Type" value={formData.registration_Type} onChange={handleChange}>
-                  <option value="" disabled>--Select--</option>
-                  <option value="Individual">Individual</option>
-                  <option value="Corporate">Corporate</option>
-                  <option value="Taxi">Taxi</option>
-                </select>
+              <div>
+                <label className='block' htmlFor="alternate_Fuel">Alternative Fuel</label>
+                  <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="alternate_Fuel" id="alternate_Fuel" value={formData.alternate_Fuel} onChange={handleChange}>
+                    <option value="none">none</option>
+                    <option value="CNG">CNG</option>
+                    <option value="LPG">LPG</option>
+                  </select>
+              </div>
+
+              <div>
+                <label className='block' htmlFor="owner">Owner</label>
+                  <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="owner" id="owner"
+                  value={formData.owner} onChange={handleChange}>
+                    <option value="" disabled>--Select--</option>
+                    <option value="First">First</option>
+                    <option value="Second">Second</option>
+                    <option value="Third">Third</option>
+                    <option value="Fourth or more">Fourth or more</option>
+                  </select>
+              </div>
+
+              <div>
+                <label className='block' htmlFor="registration_Type">Registration_type</label>
+                  <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="registration_Type" id="registration_Type" value={formData.registration_Type} onChange={handleChange}>
+                    <option value="" disabled>--Select--</option>
+                    <option value="Individual">Individual</option>
+                    <option value="Corporate">Corporate</option>
+                    <option value="Taxi">Taxi</option>
+                  </select>
+              </div>
             </div>
+            
 
             <div className='col-span-4 grid grid-cols-6 gap-4'>
               <h4 className='h-full flex items-center text-3xl'>Insurance:</h4>
