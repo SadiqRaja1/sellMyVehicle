@@ -11,7 +11,7 @@ const alowedLink = {
 
 app.use(express.json())
 app.use(cors(alowedLink))
-
+    
 app.use("/user",RouteSignup)
 app.use("/auth",RouteLogin)
 app.use("/post", RoutePostVehicle)

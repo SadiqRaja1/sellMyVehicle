@@ -54,6 +54,7 @@ const newPost = () => {
             <hr  className='col-span-4 border-1'/>
 
             <div className='col-span-4 grid grid-cols-7 gap-4' >
+
                 <div>
                   <label htmlFor="vehicleType">Vehicle type</label>
                   <select className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' name="vehicleType" id="vehicleType"
@@ -63,14 +64,17 @@ const newPost = () => {
                     <option value="Car">Car</option>
                   </select>
                 </div>
+
                 <div className='col-span-2'>
                   <label className='block' htmlFor="make">Make</label>
                   <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="text" name='make' id='make' value={formData.make} onChange={handleChange}/>
                 </div>
+
                 <div className='col-span-2'>
                   <label className='block' htmlFor="model">Model</label>
                   <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="text" name='model' id='model' value={formData.model} onChange={handleChange} />              
                 </div>
+
                 <div className='col-span-2'>
                   <label className='block' htmlFor="variant">Variant</label>
                   <input className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5' type="text" name='variant' id='variant' value={formData.variant} onChange={handleChange}/>
@@ -187,6 +191,39 @@ const newPost = () => {
             <div className='col-span-4 grid grid-cols-6 gap-4'>
               <label className='h-full flex items-center text-3xl' htmlFor="seller_Comment">Seller Comment:</label>
               <textarea className='w-full focus:outline-0 border border-gray-400 rounded px-1 py-1.5 col-span-5' name="seller_Comment" id="seller_Comment" value={formData.seller_Comment} onChange={handleChange}></textarea>
+            </div>
+
+            <div className="col-span-4  grid grid-cols-3 gap-2">
+              <div>
+                <label className="block" htmlFor="image1">Vehicle Front Image</label>
+                <input className="block w-full text-sm mt-1 text-gray-900 border border-gray-300 rounded-xl cursor-pointer bg-gray-50 focus:outline-none file:border file:border-gray-300 file:text-white file:bg-gray-700 file:rounded-tl-xl file:rounded-bl-lg file:text-md file:py-2 file:px-4 hover:file:bg-gray-500" type="file" id="image1"/>
+              </div>
+
+              <div>
+                <label className="block" htmlFor="image2">Vehicle Left Image</label>
+                <input className="block w-full text-sm mt-1 text-gray-900 border border-gray-300 rounded-xl cursor-pointer bg-gray-50 focus:outline-none file:border file:border-gray-300 file:text-white file:bg-gray-700 file:rounded-tl-xl file:rounded-bl-lg file:text-md file:py-2 file:px-4 hover:file:bg-gray-500" type="file" id="image2"/>
+              </div>
+
+              <div>
+                <label className="block" htmlFor="image3">Vehicle Right Image</label>
+                <input className="block w-full text-sm mt-1 text-gray-900 border border-gray-300 rounded-xl cursor-pointer bg-gray-50 focus:outline-none file:border file:border-gray-300 file:text-white file:bg-gray-700 file:rounded-tl-xl file:rounded-bl-lg file:text-md file:py-2 file:px-4 hover:file:bg-gray-500" type="file" id="image3"/>
+              </div>
+
+              <div>
+                <label className="block" htmlFor="image4">Vehicle Back Image</label>
+                <input className="block w-full text-sm mt-1 text-gray-900 border border-gray-300 rounded-xl cursor-pointer bg-gray-50 focus:outline-none file:border file:border-gray-300 file:text-white file:bg-gray-700 file:rounded-tl-xl file:rounded-bl-lg file:text-md file:py-2 file:px-4 hover:file:bg-gray-500" type="file" id="image4"/>
+              </div>
+
+              <div>
+                <label className="block" htmlFor="image5">Vehicle Odameter Image</label>
+                <input className="block w-full text-sm mt-1 text-gray-900 border border-gray-300 rounded-xl cursor-pointer bg-gray-50 focus:outline-none file:border file:border-gray-300 file:text-white file:bg-gray-700 file:rounded-tl-xl file:rounded-bl-lg file:text-md file:py-2 file:px-4 hover:file:bg-gray-500" type="file" id="image5"/>
+              </div>
+
+              <div>
+                <label className="block" htmlFor="image6">Vehicle Engine Image</label>
+                <input className="block w-full text-sm mt-1 text-gray-900 border border-gray-300 rounded-xl cursor-pointer bg-gray-50 focus:outline-none file:border file:border-gray-300 file:text-white file:bg-gray-700 file:rounded-tl-xl file:rounded-bl-lg file:text-md file:py-2 file:px-4 hover:file:bg-gray-500" type="file" id="image6"/>
+              </div>
+
             </div>
 
             <div className="col-span-4 grid grid-cols-3">
