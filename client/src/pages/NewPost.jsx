@@ -24,15 +24,27 @@ const newPost = () => {
     "registration_Type":"",
     "insurance_show":"",
     "insurance_valid_Till":"",
-    "seller_Comment":""
+    "seller_Comment":"",
+    "image1":null,
+    "image2":null,
+    "image3":null,
+    "image4":null,
+    "image5":null,
+    "image6":null,
   })
 
   const handleSubmit = (e) => {
     e.preventDefault();
     try{
-      console.log(formData)
+
       let mainUrl = import.meta.env.VITE_BACKEND_URL;
-      const res = axios.post(`${mainUrl}/post/vehicle`, formData);
+      let data = new FormData()
+
+      Object.keys(formData).forEach((key) => {
+        data.append(key, formData[key]);
+      })
+
+      const res = axios.post(`${mainUrl}/post/vehicle`, data);
     }catch(error){
       console.log(error)
     }
@@ -40,11 +52,20 @@ const newPost = () => {
 
   const handleChange = (e) => {
     const {name, value, type} = e.target
-    setFormData({
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       [name]: type === "number" ? (parseInt(value) || 0) : value
-    })
+    }))
   }
+
+  const handleFileChange = (e) => {
+    const {name, files} = e.target
+    setFormData((prev) => ({
+      ...prev,
+      [name]: files[0] || null
+    }))
+  }
+
   return (
     <>
         <form className='flex flex-col justify-center items-center my-5 text-gray-700 text-xl'>
@@ -206,32 +227,32 @@ const newPost = () => {
             <div className="col-span-4  grid grid-cols-3 gap-2">
               <div>
                 <label className="block" htmlFor="image1">Vehicle Front Image</label>
-                <input className="block w-full text-sm mt-1 text-gray-900 border border-gray-300 rounded-xl cursor-pointer bg-gray-50 focus:outline-none file:border file:border-gray-300 file:text-white file:bg-gray-700 file:rounded-tl-xl file:rounded-bl-lg file:text-md file:py-2 file:px-4 hover:file:bg-gray-500" type="file" id="image1"/>
+                <input className="block w-full text-sm mt-1 text-gray-900 border border-gray-300 rounded-xl cursor-pointer bg-gray-50 focus:outline-none file:border file:border-gray-300 file:text-white file:bg-gray-700 file:rounded-tl-xl file:rounded-bl-lg file:text-md file:py-2 file:px-4 hover:file:bg-gray-500" type="file" id="image1" onChange={handleFileChange}/>
               </div>
 
               <div>
                 <label className="block" htmlFor="image2">Vehicle Left Image</label>
-                <input className="block w-full text-sm mt-1 text-gray-900 border border-gray-300 rounded-xl cursor-pointer bg-gray-50 focus:outline-none file:border file:border-gray-300 file:text-white file:bg-gray-700 file:rounded-tl-xl file:rounded-bl-lg file:text-md file:py-2 file:px-4 hover:file:bg-gray-500" type="file" id="image2"/>
+                <input className="block w-full text-sm mt-1 text-gray-900 border border-gray-300 rounded-xl cursor-pointer bg-gray-50 focus:outline-none file:border file:border-gray-300 file:text-white file:bg-gray-700 file:rounded-tl-xl file:rounded-bl-lg file:text-md file:py-2 file:px-4 hover:file:bg-gray-500" type="file" id="image2" onChange={handleFileChange}/>
               </div>
 
               <div>
                 <label className="block" htmlFor="image3">Vehicle Right Image</label>
-                <input className="block w-full text-sm mt-1 text-gray-900 border border-gray-300 rounded-xl cursor-pointer bg-gray-50 focus:outline-none file:border file:border-gray-300 file:text-white file:bg-gray-700 file:rounded-tl-xl file:rounded-bl-lg file:text-md file:py-2 file:px-4 hover:file:bg-gray-500" type="file" id="image3"/>
+                <input className="block w-full text-sm mt-1 text-gray-900 border border-gray-300 rounded-xl cursor-pointer bg-gray-50 focus:outline-none file:border file:border-gray-300 file:text-white file:bg-gray-700 file:rounded-tl-xl file:rounded-bl-lg file:text-md file:py-2 file:px-4 hover:file:bg-gray-500" type="file" id="image3" onChange={handleFileChange}/>
               </div>
 
               <div>
                 <label className="block" htmlFor="image4">Vehicle Back Image</label>
-                <input className="block w-full text-sm mt-1 text-gray-900 border border-gray-300 rounded-xl cursor-pointer bg-gray-50 focus:outline-none file:border file:border-gray-300 file:text-white file:bg-gray-700 file:rounded-tl-xl file:rounded-bl-lg file:text-md file:py-2 file:px-4 hover:file:bg-gray-500" type="file" id="image4"/>
+                <input className="block w-full text-sm mt-1 text-gray-900 border border-gray-300 rounded-xl cursor-pointer bg-gray-50 focus:outline-none file:border file:border-gray-300 file:text-white file:bg-gray-700 file:rounded-tl-xl file:rounded-bl-lg file:text-md file:py-2 file:px-4 hover:file:bg-gray-500" type="file" id="image4" onChange={handleFileChange}/>
               </div>
 
               <div>
                 <label className="block" htmlFor="image5">Vehicle Odameter Image</label>
-                <input className="block w-full text-sm mt-1 text-gray-900 border border-gray-300 rounded-xl cursor-pointer bg-gray-50 focus:outline-none file:border file:border-gray-300 file:text-white file:bg-gray-700 file:rounded-tl-xl file:rounded-bl-lg file:text-md file:py-2 file:px-4 hover:file:bg-gray-500" type="file" id="image5"/>
+                <input className="block w-full text-sm mt-1 text-gray-900 border border-gray-300 rounded-xl cursor-pointer bg-gray-50 focus:outline-none file:border file:border-gray-300 file:text-white file:bg-gray-700 file:rounded-tl-xl file:rounded-bl-lg file:text-md file:py-2 file:px-4 hover:file:bg-gray-500" type="file" id="image5" onChange={handleFileChange}/>
               </div>
 
               <div>
                 <label className="block" htmlFor="image6">Vehicle Engine Image</label>
-                <input className="block w-full text-sm mt-1 text-gray-900 border border-gray-300 rounded-xl cursor-pointer bg-gray-50 focus:outline-none file:border file:border-gray-300 file:text-white file:bg-gray-700 file:rounded-tl-xl file:rounded-bl-lg file:text-md file:py-2 file:px-4 hover:file:bg-gray-500" type="file" id="image6"/>
+                <input className="block w-full text-sm mt-1 text-gray-900 border border-gray-300 rounded-xl cursor-pointer bg-gray-50 focus:outline-none file:border file:border-gray-300 file:text-white file:bg-gray-700 file:rounded-tl-xl file:rounded-bl-lg file:text-md file:py-2 file:px-4 hover:file:bg-gray-500" type="file" id="image6" onChange={handleFileChange}/>
               </div>
 
             </div>
