@@ -1,8 +1,7 @@
 const Vehicle = require("../models/vehicle/vehicle");
 
 async function post(data) {
-    try {
-        
+    try { 
         const newVehicle =  new Vehicle(data);
         const response = await newVehicle.save();
         console.log(response)

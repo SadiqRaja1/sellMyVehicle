@@ -11,6 +11,7 @@ const alowedLink = {
 
 app.use(express.json())
 app.use(cors(alowedLink))
+app.use(express.static("Public"))
     
 app.use("/user",RouteSignup)
 app.use("/auth",RouteLogin)

@@ -98,6 +98,25 @@ const vehicleSchema = new mongoose.Schema({
         maxlength:1000,
         trim: true
     },
+
+    image1 : {
+        type:String
+    },
+    image2 : {
+        type : String
+    },
+    image3 : {
+        type : String
+    },
+    image4 : {
+        type : String
+    },
+    image5 : {
+        type : String
+    },
+    image6 : {
+        type : String
+    }
     
 })
 
