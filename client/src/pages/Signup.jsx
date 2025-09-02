@@ -55,22 +55,22 @@ const Signup = () => {
 
         <div className='w-full flex bg-white/20 rounded px-2 py-3 mb-3'>
           <label className='text-xl ml-1' htmlFor="name">Name</label>
-          <input className='px-2 py-0.5 ml-1 flex-grow focus:outline-none focus:bg-white/25 rounded' type="text" id='name' name='name' value={userData.name} onChange={handleChange}/>
+          <input className='px-2 py-0.5 ml-1 flex-grow focus:outline-none bg-white/25 rounded' type="text" id='name' name='name' value={userData.name} onChange={handleChange}/>
         </div>
 
         <div className='w-full flex bg-white/20 rounded px-2 py-3 mb-3'>
           <label className='text-xl ml-1' htmlFor="email">Email</label>
-          <input className='px-2 py-0.5 ml-1 flex-grow focus:outline-none focus:bg-white/25 rounded' type="email" id='email' name="email" value={userData.email} onChange={handleChange}/>
+          <input className='px-2 py-0.5 ml-1 flex-grow focus:outline-none bg-white/25 rounded' type="email" id='email' name="email" value={userData.email} onChange={handleChange}/>
         </div>
 
         <div className='w-full flex bg-white/20 rounded px-2 py-3 mb-3'>
           <label className='text-xl ml-1' htmlFor="password">Password</label>
-          <input className='px-2 py-0.5 ml-1 flex-grow focus:outline-none focus:bg-white/25 rounded' type="password" id='password' name='password' value={userData.password} onChange={handleChange}/>
+          <input className='px-2 py-0.5 ml-1 flex-grow focus:outline-none bg-white/25 rounded' type="password" id='password' name='password' value={userData.password} onChange={handleChange}/>
         </div>
 
         <div className='w-full flex bg-white/20 rounded px-2 py-3 mb-3 '>
           <label className='text-xl ml-1' htmlFor="confirmPassword">Confirm Password</label>
-          <input className='px-2 py-0.5 ml-1 flex-grow focus:outline-none focus:bg-white/25 rounded' type="password" id='confirmPassword' name='confirmPassword' value={confirmPassword} onChange={(e) => {setConfirmPassword(e.target.value)}} />
+          <input className='px-2 py-0.5 ml-1 flex-grow focus:outline-none bg-white/25 rounded' type="password" id='confirmPassword' name='confirmPassword' value={confirmPassword} onChange={(e) => {setConfirmPassword(e.target.value)}} />
         </div>
 
         <div className='w-full flex justify-center'>
