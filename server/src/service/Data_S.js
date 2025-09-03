@@ -4,7 +4,7 @@ async function Data() {
     try {
         const data = await vehicle.find();
         console.log(data);
-        return Data
+        return data;
     }catch (error) {
         throw new Error (`Something went wrong : ${error}`);
     }
