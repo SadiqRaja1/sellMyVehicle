@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import Card from "../components/Card"
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -13,14 +14,17 @@ const Home = () => {
       console.error("Error in getting data from backend");
     }
   }
-  console.log(data.data);
 
   useEffect(() => {
     fetchData();
   }, []);
 
   return (
-    <div>New Home</div>
+    <div className='w-full h-screen justify-center flex'>
+      <div className='xl:w-5/6 w-full h-full flex justify-around pt-6'>
+        <Card userData={data}/>
+      </div>
+    </div>
   )
 }
 
